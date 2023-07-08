@@ -1,0 +1,170 @@
+{{define "content"}}
+{{include "css/search_style"}}
+<header class="sticky top-0 bg-white">
+    <div class="flex w-full p-6  justify-center xl:justify-start">
+        <div class="search_width">
+            <div class="w-full flex justify-between">
+                <a href="/" class="">
+                    <img src="/static/daledai_no_bg.png" width="120" height="40" decoding="async" data-nimg="1" loading="lazy"
+                        style="color: transparent;">
+                </a>
+                <div class="h-full pt-7 hidden xl:block">
+                    <a href="/" class="border-b active">
+                        Web
+                    </a>
+                    <a href="/" class="hover:border-b pl-2">
+                        Image
+                    </a>
+                    <a href="/" class="hover:border-b pl-2">
+                        Videos
+                    </a>
+                    <a href="/" class="hover:border-b pl-2">
+                        News
+                    </a>
+                </div>
+            </div>
+            <div class="search_width flex h-12 mt-2 rounded-md border border-gray-200 shadow">
+                <div class="w-10 ml-1.5 mt-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                        style="fill: rgb(139, 138, 138);">
+                        <path
+                            d="M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zm0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6z">
+                        </path>
+                    </svg>
+                </div>
+                <form action="search" class="w-full h-full pl-2 text-xl rounded-md">
+                    <input autocomplete="off" type="text" value="{{.q}}" placeholder="Search" class="w-full h-full rounded-md outline-none"
+                    name="q" id="q">
+                </form>
+            </div>
+        </div>
+    </div>
+    <div
+        class="flex space-x-2 select-none border-b w-full justify-center lg:justify-start lg:pl-52 text-gray-700 text-sm">
+    </div>
+</header>
+
+<div class="w-full flex  pl-6 justify-center xl:justify-start">
+    <div class="search_width px-3 pb-40 sm:pb-24 ">
+        <p class="text-gray-600 text-sm mb-5 mt-3">About 31,610,000,000 results (0.54 seconds)</p>
+        {{range .result}}
+            <div class="mb-8 max-w-xl">
+                <div class="group flex flex-col">
+                    <a class="text-sm truncate" href="{{.URL}}">
+                        {{.URL}}</a>
+                        <a class="group-hover:underline decoration-blue-800 text-xl truncate font-medium text-blue-800" 
+                        href="{{.URL}}">{{.Title}}</a>
+                    </div>
+                <p class="text-gray-600">
+                    {{.Description}} <b>{{.Title}}</b>
+                </p>
+            </div>
+        {{end}}
+        
+        
+        <div class="text-blue-700 flex px-10 pb-4 justify-between sm:justify-start sm:space-x-44 sm:px-0"><a
+                href="{{.next_page_url}}">
+                <div class="flex flex-col cursor-pointer items-center hover:underline"><svg stroke="currentColor"
+                        fill="currentColor" stroke-width="0" viewBox="0 0 16 16" class="h-5" height="1em"
+                        width="1em" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z">
+                        </path>
+                    </svg>
+                    <p>Next</p>
+                </div>
+            </a></div>
+    </div>
+</div>
+    
+
+
+<footer class="text-sm text-gray-500 bg-footer w-full">
+    <div class="flex flex-col sm:flex-row justify-between items-center px-8 py-3 space-y-7 sm:space-y-0">
+        <ul class="flex items-center space-x-6">
+            <li class="link">About</li>
+            <li class="link">Advertising</li>
+            <li class="link">Business</li>
+            <li class="link">How Search works</li>
+        </ul>
+        <ul class="flex items-center space-x-6">
+            <li class="link">Privacy</li>
+            <li class="link">Terms</li>
+            <li class="link">Settings</li>
+        </ul>
+    </div>
+</footer>
+
+<div class="bottom_bar w-full flex justify-center xl:hidden">
+    <div class="tabs">
+        <input type="radio" name="tab" id="tab-01" checked />
+        <label for="tab-01">
+            <svg>
+                <use xlink:href="#icon-01" class="icon" />
+                <use xlink:href="#icon-01" class="icon" />
+                <use xlink:href="#icon-01" class="icon" />
+                <use xlink:href="#icon-01" class="icon" />
+                <use xlink:href="#icon-01" class="icon" />
+            </svg>
+        </label>
+        <input type="radio" name="tab" id="tab-02" />
+        <label for="tab-02">
+            <svg>
+                <use xlink:href="#icon-02" class="icon" />
+                <use xlink:href="#icon-02" class="icon" />
+                <use xlink:href="#icon-02" class="icon" />
+                <use xlink:href="#icon-02" class="icon" />
+                <use xlink:href="#icon-02" class="icon" />
+            </svg>
+        </label>
+        <input type="radio" name="tab" id="tab-03" />
+        <label for="tab-03">
+            <svg>
+                <use xlink:href="#icon-03" class="icon" />
+                <use xlink:href="#icon-03" class="icon" />
+                <use xlink:href="#icon-03" class="icon" />
+                <use xlink:href="#icon-03" class="icon" />
+                <use xlink:href="#icon-03" class="icon" />
+            </svg>
+        </label>
+        <input type="radio" name="tab" id="tab-04" />
+        <label for="tab-04">
+            <svg>
+                <use xlink:href="#icon-04" class="icon" />
+                <use xlink:href="#icon-04" class="icon" />
+                <use xlink:href="#icon-04" class="icon" />
+                <use xlink:href="#icon-04" class="icon" />
+                <use xlink:href="#icon-04" class="icon" />
+            </svg>
+        </label>
+    </div>
+
+
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="28" width="28" id="icon-01">
+            <path xmlns="http://www.w3.org/2000/svg"
+                d="M17 21H7C4.79086 21 3 19.2091 3 17V10.7076C3 9.30887 3.73061 8.01175 4.92679 7.28679L9.92679 4.25649C11.2011 3.48421 12.7989 3.48421 14.0732 4.25649L19.0732 7.28679C20.2694 8.01175 21 9.30887 21 10.7076V17C21 19.2091 19.2091 21 17 21Z" />
+            <path xmlns="http://www.w3.org/2000/svg" d="M9 17H15" />
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="28" width="28" id="icon-02">
+            <path xmlns="http://www.w3.org/2000/svg"
+                d="M21 3.6V20.4C21 20.7314 20.7314 21 20.4 21H3.6C3.26863 21 3 20.7314 3 20.4V3.6C3 3.26863 3.26863 3 3.6 3H20.4C20.7314 3 21 3.26863 21 3.6Z" />
+            <path xmlns="http://www.w3.org/2000/svg" d="M3 16L10 13L21 18" />
+            <path xmlns="http://www.w3.org/2000/svg"
+                d="M16 10C14.8954 10 14 9.10457 14 8C14 6.89543 14.8954 6 16 6C17.1046 6 18 6.89543 18 8C18 9.10457 17.1046 10 16 10Z" />
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="28" width="28" id="icon-03">
+            <path xmlns="http://www.w3.org/2000/svg"
+                d="M21 3.6V20.4C21 20.7314 20.7314 21 20.4 21H3.6C3.26863 21 3 20.7314 3 20.4V3.6C3 3.26863 3.26863 3 3.6 3H20.4C20.7314 3 21 3.26863 21 3.6Z" />
+            <path xmlns="http://www.w3.org/2000/svg"
+                d="M9.89768 8.51296C9.49769 8.28439 9 8.57321 9 9.03391V14.9661C9 15.4268 9.49769 15.7156 9.89768 15.487L15.0883 12.5209C15.4914 12.2906 15.4914 11.7094 15.0883 11.4791L9.89768 8.51296Z" />
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="28" width="28" id="icon-04">
+            <path
+                d="M22 5L22 17C22 18.3333333 21.3333333 19 20 19 18.6666667 19 18 18.3333333 18 17L18 5 2 5 2 16C2 18 3 19 5 19 7 19 12 19 20 19M6 14L7 14M11 14L14 14M6 10L14 10">
+            </path>
+        </symbol>
+    </svg>
+</div>
+
+{{end}}

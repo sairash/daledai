@@ -1,0 +1,32 @@
+<!doctype html>
+
+<html>
+    <head>
+        <meta charset = "utf-8" />
+        <title>{{.title}}</title>
+        <link rel="icon" href="/favicon.ico" >
+        <link rel="stylesheet" href="/static/css/tailwind.css">
+        <style>
+            .w-90 {
+                width: 100%;
+                width: 500px;
+            }
+    
+            .search_width {
+                width: 100%;
+                max-width: 700px;
+            }
+            .active{
+                border-color: #ff3030;
+                color: #ff3030;
+            }
+            .bg-footer {
+                background: #f2f2f2;
+            }
+        </style>
+    </head>
+
+    <body>
+        {{template "content" .}}
+    </body>
+</html>
